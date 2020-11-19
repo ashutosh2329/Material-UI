@@ -13,18 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright @ '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -85,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
           <Grid container>
           <Grid item >  
           <FormControlLabel
-            control={<Checkbox value="remember" color="Secondary" />}
+            control={<Checkbox value="remember" color="secondary" />}
             label="Remember me"
             color="primary"
           />
@@ -116,9 +105,6 @@ const useStyles = makeStyles((theme) => ({
           </Grid>
         </form>
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
     </Container>
   );
 }
