@@ -5,11 +5,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
+
 function Copyright() {
     return (
-      <Typography variant="body2" color="textSecondary" align="center">
+      <Typography variant="body2" color="primary" align="center">
         {'Copyright @ '}
-        <Link color="inherit" href="https://material-ui.com/">
+        <Link color="primary" href="https://material-ui.com/">
           Your Website
         </Link>{' '}
         {new Date().getFullYear()}
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     minHeight: "30.5vh",
+   
   },
   main: {
     marginTop: theme.spacing(8),
@@ -31,8 +33,7 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     padding: theme.spacing(4,2),
     marginTop: 'auto',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
+    backgroundColor:"#000000",
   },
 }));
 
@@ -43,7 +44,7 @@ export default function Footer() {
     <div className={classes.root}>
       <CssBaseline />
       <footer className={classes.footer}>
-        <Container maxWidth="sm">
+        <Container maxWidth="sm" >
           <Copyright />
         </Container>
       </footer>

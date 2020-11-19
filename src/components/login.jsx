@@ -7,11 +7,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Login from '@material-ui/icons/VpnKeyRounded';
+// import Box from '@material-ui/core/Box';
+import Loginicon from '@material-ui/icons/VpnKeyRounded';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 
 
@@ -24,15 +26,29 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
-    width: '100%', 
-    marginTop: theme.spacing(1),
+    width: '80%', 
+    marginTop: theme.spacing(0.5),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(1, 0, 0,0),
+    borderRadius: theme.spacing(5),
+    
   },
+  textField: {
+    [`& fieldset`]: {
+      borderRadius: "50px",
+    }
+  },
+  checkBox: {
+    margin: theme.spacing(1,0,0,0),
+  },
+  textStyle: {
+    margin: theme.spacing(1,0,0,1)
+  }
+
 }));
 
  function LogIn() {
@@ -43,15 +59,13 @@ const useStyles = makeStyles((theme) => ({
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <Login />
+          <Loginicon />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          Log In
-        </Typography>
         <form className={classes.form} noValidate>
-          <TextField
+          <TextField className={classes.textField}
             variant="outlined"
-            margin="normal"
+            size="small"
+            margin="dense"
             required
             fullWidth
             id="username"
@@ -60,9 +74,10 @@ const useStyles = makeStyles((theme) => ({
             autoComplete="username"
             autoFocus
           />
-          <TextField
+          <TextField className={classes.textField}
             variant="outlined"
-            margin="normal"
+            margin="dense"
+            size="small"
             required
             fullWidth
             name="password"
@@ -71,38 +86,33 @@ const useStyles = makeStyles((theme) => ({
             id="password"
             autoComplete="current-password"
           />
-          <Grid container>
-          <Grid item >  
-          <FormControlLabel
-            control={<Checkbox value="remember" color="secondary" />}
-            label="Remember me"
-            color="primary"
-          />
+          <Grid container >
+          <Grid item  >  
+          <FormControlLabel className={classes.checkBox}
+            control={<Checkbox value="remember" color="primary"  />}
+            label={<Typography  >Remember me</Typography>}
+            color="primary"/>
           </Grid>
-          <Grid item >
+          </Grid>
+          <Grid container>
+          <Grid item className={classes.textStyle}>
               <Link href="#" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
-          
           </Grid>
           <Button
             type="submit"
-            fullWidth
             variant="contained"
-            color="secondary"
-            className={classes.submit}
-          >
-            Log In
-          </Button>
-          <Grid container>
-            
-            <Grid item>
+            fullWidth
+            size="large"
+            color="primary"
+            className={classes.submit}><Typography color="secondary">Sign In</Typography></Button>
+            <Grid item className={classes.textStyle}>
               <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
-          </Grid>
         </form>
       </div>
     </Container>
