@@ -8,22 +8,32 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 // import Box from '@material-ui/core/Box';
-import Loginicon from '@material-ui/icons/VpnKeyRounded';
+import Loginicon from '@material-ui/icons/AccountBoxRounded';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+// import CardContent from '@material-ui/core/CardContent';
+import { FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
 
 
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
+  card: {
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
+
+  cardElement: {
+    marginTop: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderRadius: theme.spacing(5),
+  },
+
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.primary.main,
@@ -33,13 +43,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(0.5),
   },
   submit: {
-    margin: theme.spacing(1, 0, 0,0),
+    margin: theme.spacing(1, 0, 1,0),
     borderRadius: theme.spacing(5),
     
   },
   textField: {
     [`& fieldset`]: {
-      borderRadius: "50px",
+      borderRadius: theme.spacing(5),
     }
   },
   checkBox: {
@@ -47,7 +57,10 @@ const useStyles = makeStyles((theme) => ({
   },
   textStyle: {
     margin: theme.spacing(1,0,0,1)
-  }
+  },
+  textStyleBottom: {
+    margin: theme.spacing(0,0,4,1)
+  },
 
 }));
 
@@ -57,10 +70,15 @@ const useStyles = makeStyles((theme) => ({
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <Loginicon />
-        </Avatar>
+      
+    <div className={classes.card}>
+         
+   <Card className={classes.cardElement}>
+
+   <Avatar className={classes.avatar}>
+      <Loginicon />
+   </Avatar>
+
         <form className={classes.form} noValidate>
           <TextField className={classes.textField}
             variant="outlined"
@@ -108,13 +126,21 @@ const useStyles = makeStyles((theme) => ({
             size="large"
             color="primary"
             className={classes.submit}><Typography color="secondary">Sign In</Typography></Button>
-            <Grid item className={classes.textStyle}>
+            <Grid item className={classes.textStyleBottom}>
               <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
+            <Grid >
+            <Typography style={{ textAlign: "center"}}>OR</Typography>
+            <FacebookLoginButton style={{borderRadius: "50px"}} />
+            <GoogleLoginButton style={{borderRadius: "50px"}} />
+            <TwitterLoginButton style={{borderRadius: "50px"}} />
+            </Grid>
             </Grid>
         </form>
-      </div>
+        
+        </Card>
+        </div>
     </Container>
   );
 }

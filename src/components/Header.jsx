@@ -30,7 +30,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title} color="secondary" >
-            "App Name"
+            App Name
           </Typography>
           <Button color="secondary">SignUp</Button>
           <Button color="secondary">Home</Button>
