@@ -1,6 +1,8 @@
+import { Grid } from '@material-ui/core';
 import React from 'react';
-import SimpleCard from '../components/Card';
-import {makeStyles } from '@material-ui/styles'
+// import SimpleCard from '../components/Card';
+// import InputBox from '../components/inputBox';
+import EmptyCard from '../components/emptyCard';
 
 
 
@@ -10,7 +12,9 @@ function LogIn() {
   
     return (
       <div>
-        <SimpleCard  />
+        
+       <EmptyCard />
+          
       </div>
     )
 }
